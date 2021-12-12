@@ -1,4 +1,11 @@
 #!/bin/bash
+#Autor: k666
+#Data: 16/02/2015
+#Algoritmo que calcula: soma, subtração, multiplicação,
+#divisão, a raiz quadrada de números exatos como 4, 16,  121...
+#e conversão de bases decimal e hexadecimal
+
+
 menu ()
 {
 
@@ -21,10 +28,7 @@ read  opcao
 
 case $opcao in
     l) local ;;
-    2) subtracao ;;
-    3) multiplicacao ;;
-    4) divisao ;;
-    5) raizquad ;;
+    r) remoto ;;
     0) exit ;;
 esac
 
@@ -37,6 +41,7 @@ clear && echo -e "${AMARELO}Backup local \n" && tput sgr0
   echo "$MENSAGEM_LOG" >> "$ARQUIVO_LOG"
   rsync -avh --progress "$dir_origem" "$dir_destino" --log-file="$ARQUIVO_LOG" # Alterar as opções se necessário
   Verifica_status
+echo
 echo "--------------------------------"
 echo
 
@@ -64,18 +69,12 @@ echo
 
 }
 
-subtracao ()
+remoto ()
 {
-
-    clear
-    echo "Digite um número: "
-    read num1
-    echo "Digite um número: "
-    read num2
-
-    sub=$(($num1 - $num2 ))
-
-    echo "Resultado da soma: $sub"
+  clear && echo -e "${AMARELO}Backup remoto \n" && tput sgr0
+  echo "$MENSAGEM_LOG" >> "$ARQUIVO_LOG"
+  sudo rsync -avhP --progress -e ssh "$dir_origem" "$dir_destino" --log-file="$ARQUIVO_LOG" # Alterar as opções se necessário
+  Verifica_status
 
 echo
 echo "--------------------------------"

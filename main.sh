@@ -1,11 +1,4 @@
 #!/bin/bash
-#Autor: k666
-#Data: 16/02/2015
-#Algoritmo que calcula: soma, subtração, multiplicação,
-#divisão, a raiz quadrada de números exatos como 4, 16,  121...
-#e conversão de bases decimal e hexadecimal
-
-
 menu ()
 {
 

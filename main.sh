@@ -1,4 +1,9 @@
 #!/bin/bash
+
+VERDE="\033[32;1m"
+AMARELO="\033[33;1m"
+VERMELHO="\033[31;1m"
+
 menu ()
 {
 
@@ -14,7 +19,7 @@ echo
 echo
 echo "< -l > Backup local"
 echo "< -r > Backup remoto"
-echo "<  0 > Sair "
+echo "< -0 > Sair "
 echo
 echo "Escolha uma das opções acima:  "
 read  opcao
